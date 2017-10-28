@@ -1,5 +1,5 @@
 from logger import Logger
-logger = Logger("/srv/www/vardex.ru/public_html/telegram/log.txt")
+logger = Logger("path to your log/log.txt")
 
 import telebot
 from telebot import types
