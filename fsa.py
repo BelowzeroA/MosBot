@@ -61,7 +61,7 @@ class FSA:
             if self.current_command is None:
                 return True
             current_command = self.current_command
-        if command_text == 'написать оператору':
+        elif command_text == 'написать оператору':
             self.current_text = "Для обращения к оператору перейдите на @pp_operator_bot"
             return True
         elif command_text == '' and msg.content_type == 'contact':
