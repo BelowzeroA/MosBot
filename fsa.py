@@ -61,6 +61,9 @@ class FSA:
             if self.current_command is None:
                 return True
             current_command = self.current_command
+        if command_text == 'написать оператору':
+            self.current_text = "Для обращения к оператору перейдите на @pp_operator_bot"
+            return True
         elif command_text == '' and msg.content_type == 'contact':
             """
             Обработка команды передачи номера телефона боту
@@ -171,6 +174,8 @@ class FSA:
         Добавляет навигационные кнопки Назад и В начало в класс ReplyKeyboardMarkup
         """
         markup.row("Назад", "В начало")
+        if self.current_command and not "написать оператору" in self.current_command["button_text"].lower():
+            markup.row("Написать оператору")
 
     def check_condition(self, condition):
         return eval(condition)
